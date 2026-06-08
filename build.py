@@ -8,6 +8,116 @@ from pathlib import Path
 
 SITE_DIR = Path(__file__).parent / "site"
 
+# ---- Illustrations (pen-and-ink SVG) -----------------------------------------
+
+def _svg(viewbox: str, body: str, cls: str = "ill", stroke: str = "currentColor", sw: str = "2") -> str:
+    return (
+        f'<svg viewBox="{viewbox}" class="{cls}" xmlns="http://www.w3.org/2000/svg" '
+        f'fill="none" stroke="{stroke}" stroke-width="{sw}" '
+        f'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">{body}</svg>'
+    )
+
+SVGS = {
+    "pine": _svg("0 0 80 80",
+        # layered pine + trunk + ground hint
+        '<path d="M40 8 L24 28 L32 28 L18 46 L28 46 L14 64 L66 64 L52 46 L62 46 L48 28 L56 28 Z"/>'
+        '<path d="M40 64 V72"/>'
+        '<path d="M16 74 Q40 70 64 74"/>'),
+    "hardwood": _svg("0 0 80 80",
+        # round canopy with internal sketch + trunk + ground
+        '<circle cx="40" cy="32" r="22"/>'
+        '<path d="M28 24 q4 -4 10 -2"/>'
+        '<path d="M44 22 q6 0 10 4"/>'
+        '<path d="M30 40 q6 2 10 -2"/>'
+        '<path d="M50 40 q4 0 6 -2"/>'
+        '<path d="M40 54 V72"/>'
+        '<path d="M34 62 q-3 -2 -5 -6"/>'
+        '<path d="M46 62 q3 -2 5 -6"/>'
+        '<path d="M16 74 Q40 70 64 74"/>'),
+    "dozer": _svg("0 0 80 80",
+        # blade, arm, body, cab, tracks, ground
+        '<path d="M6 60 L18 36 L18 60 Z"/>'
+        '<path d="M18 50 L28 46"/>'
+        '<path d="M26 32 L58 32 L62 50 L26 50 Z"/>'
+        '<path d="M34 32 L36 20 L52 20 L54 32"/>'
+        '<path d="M44 20 L44 32"/>'
+        '<rect x="20" y="56" width="52" height="12" rx="6"/>'
+        '<circle cx="30" cy="62" r="2.5"/>'
+        '<circle cx="62" cy="62" r="2.5"/>'
+        '<path d="M4 74 Q40 70 76 74"/>'),
+    "mulcher": _svg("0 0 80 80",
+        # excavator-style with cutting head
+        '<rect x="10" y="56" width="48" height="12" rx="6"/>'
+        '<circle cx="20" cy="62" r="2.5"/>'
+        '<circle cx="48" cy="62" r="2.5"/>'
+        '<path d="M16 36 L52 36 L56 56 L14 56 Z"/>'
+        '<path d="M22 36 L26 24 L46 24 L50 36"/>'
+        '<path d="M52 40 L66 22"/>'
+        '<path d="M66 22 L72 38"/>'
+        '<circle cx="72" cy="44" r="6"/>'
+        '<path d="M68 44 L76 44 M72 40 L72 48"/>'
+        '<path d="M4 74 Q40 70 76 74"/>'),
+    "pond": _svg("0 0 80 80",
+        # oval water + cattails + ripples
+        '<ellipse cx="40" cy="52" rx="32" ry="10"/>'
+        '<path d="M22 56 q4 -1 8 0"/>'
+        '<path d="M40 58 q4 -1 8 0"/>'
+        '<path d="M10 50 L8 28"/>'
+        '<ellipse cx="8" cy="26" rx="2" ry="5"/>'
+        '<path d="M16 50 L14 34"/>'
+        '<ellipse cx="14" cy="32" rx="2" ry="4"/>'
+        '<path d="M70 50 L72 30"/>'
+        '<ellipse cx="72" cy="28" rx="2" ry="5"/>'
+        '<path d="M4 74 Q40 70 76 74"/>'),
+    "lake": _svg("0 0 80 80",
+        # waves + dock + shoreline
+        '<path d="M4 26 q6 -4 12 0 t12 0 t12 0 t12 0 t12 0 t12 0"/>'
+        '<path d="M4 36 q6 -4 12 0 t12 0 t12 0 t12 0 t12 0 t12 0"/>'
+        '<path d="M4 46 q6 -4 12 0 t12 0 t12 0 t12 0 t12 0 t12 0"/>'
+        '<path d="M40 16 L40 38"/>'
+        '<path d="M34 16 L46 16"/>'
+        '<path d="M36 20 L36 30 M44 20 L44 30"/>'
+        '<path d="M4 64 L22 64 Q30 60 38 64 L52 64 Q60 60 66 64 L76 64"/>'
+        '<path d="M16 64 L18 56 L20 64 Z M60 64 L62 56 L64 64 Z"/>'),
+    "road": _svg("0 0 80 80",
+        # perspective road + trees + center dashes
+        '<path d="M20 72 L36 18"/>'
+        '<path d="M60 72 L44 18"/>'
+        '<path d="M40 62 L40 58 M40 50 L40 46 M40 38 L40 34 M40 26 L40 22"/>'
+        '<circle cx="10" cy="36" r="6"/>'
+        '<path d="M10 42 L10 50"/>'
+        '<circle cx="70" cy="36" r="6"/>'
+        '<path d="M70 42 L70 50"/>'
+        '<path d="M4 74 H76"/>'),
+    "compass": _svg("0 0 80 80",
+        # simple compass — for service-area page
+        '<circle cx="40" cy="40" r="28"/>'
+        '<path d="M40 14 L46 40 L40 66 L34 40 Z"/>'
+        '<path d="M14 40 L40 46 L66 40 L40 34 Z"/>'
+        '<circle cx="40" cy="40" r="3"/>'),
+    "mark": _svg("0 0 40 40",
+        # tiny brand mark — pine inside a circle
+        '<circle cx="20" cy="20" r="18"/>'
+        '<path d="M20 8 L13 18 L17 18 L11 26 L15 26 L8 34 L32 34 L25 26 L29 26 L23 18 L27 18 Z"/>'
+        '<path d="M20 34 V36"/>',
+        sw="1.8"),
+    "tree-dozer": _svg("0 0 120 80",
+        # composite hero motif: pine + dozer side-by-side
+        '<path d="M22 6 L8 24 L15 24 L2 40 L11 40 L0 56 L44 56 L33 40 L41 40 L28 24 L34 24 Z"/>'
+        '<path d="M22 56 V62"/>'
+        '<path d="M60 60 L70 42 L70 60 Z"/>'
+        '<path d="M70 54 L78 52"/>'
+        '<path d="M76 38 L106 38 L110 54 L76 54 Z"/>'
+        '<path d="M82 38 L84 28 L100 28 L102 38"/>'
+        '<rect x="72" y="58" width="44" height="10" rx="5"/>'
+        '<circle cx="80" cy="63" r="2"/>'
+        '<circle cx="108" cy="63" r="2"/>'
+        '<path d="M0 74 Q60 70 120 74"/>'),
+}
+
+ICON = lambda key: SVGS.get(key, "")
+
+
 # ---- Shared chrome -----------------------------------------------------------
 
 # noindex toggle for the dev domain. Flip DEV_NOINDEX to False on launch.
@@ -36,7 +146,10 @@ def head(title: str, description: str, slug: str, extra_jsonld: str = "") -> str
 
 HEADER = f"""<header class="site-header">
   <div class="wrap">
-    <a class="brand" href="/">Rowe Land, Timber &amp; Dozer<small>Livingston, TX · Polk County</small></a>
+    <a class="brand" href="/">
+      <span class="brand-mark">{SVGS['mark']}</span>
+      <span class="brand-text">Rowe Land, Timber &amp; Dozer<small>Livingston, TX · Polk County</small></span>
+    </a>
     <nav class="nav">
       <a href="/timber/">Timber</a>
       <a href="/land/">Land &amp; Dozer</a>
@@ -82,13 +195,18 @@ LOCALBUSINESS_JSONLD = """<script type="application/ld+json">
 
 # ---- Page helpers ------------------------------------------------------------
 
-def service_hero(eyebrow: str, h1: str, lede: str, cta_label: str, cta_type: str, cta_class: str = "btn") -> str:
-    return f"""<section class="hero">
+def service_hero(eyebrow, h1, lede, cta_label, cta_type, cta_class="btn", icon=None):
+    art = f'<div class="hero-art">{SVGS[icon]}</div>' if icon and icon in SVGS else ""
+    hero_class = "hero hero-illustrated" if art else "hero"
+    return f"""<section class="{hero_class}">
   <div class="wrap">
-    <p class="eyebrow-line">{eyebrow}</p>
-    <h1>{h1}</h1>
-    <p class="lede">{lede}</p>
-    <p><a class="{cta_class}" href="/contact/?type={cta_type}">{cta_label}</a> &nbsp; <a class="btn ghost" href="tel:{PHONE_TEL}">Call {PHONE_DISPLAY}</a></p>
+    <div>
+      <p class="eyebrow-line">{eyebrow}</p>
+      <h1>{h1}</h1>
+      <p class="lede">{lede}</p>
+      <p><a class="{cta_class}" href="/contact/?type={cta_type}">{cta_label}</a> &nbsp; <a class="btn ghost" href="tel:{PHONE_TEL}">Call {PHONE_DISPLAY}</a></p>
+    </div>
+    {art}
   </div>
 </section>"""
 
@@ -122,12 +240,14 @@ def build_home():
     <p class="lede">One Livingston-based outfit for the heavy land work most owners need, and an honest advocate when it&rsquo;s time to sell your timber. From raw timber to build-ready ground, we cover the whole job.</p>
     <div class="paths">
       <div class="path">
+        <div class="path-art">""" + SVGS['pine'] + """</div>
         <p class="eyebrow">Own forested land?</p>
         <h2>Selling or harvesting timber</h2>
         <p>Most buyers work for themselves. I work for you — making sure your timber is measured honestly, bid competitively, and sold for what it&rsquo;s actually worth.</p>
         <a class="btn" href="/timber/">Get a Free Timber Evaluation</a>
       </div>
       <div class="path">
+        <div class="path-art">""" + SVGS['dozer'] + """</div>
         <p class="eyebrow">Bought a lot or acreage?</p>
         <h2>Land clearing &amp; dirt work</h2>
         <p>Dozer, forestry mulcher, and excavator work for East Texas pine and hardwood. Lake Livingston lots, pads, roads, ponds, drainage — the real scope.</p>
@@ -180,7 +300,7 @@ def build_timber_pillar():
         "For landowners · Polk County &amp; East Texas",
         "What&rsquo;s your timber actually worth?",
         "Selling standing timber is a once-or-twice-in-a-lifetime decision, and landowners get lowballed every day in East Texas. I&rsquo;ll walk your land, give you an honest evaluation, and represent <em>your</em> side of the sale — not the buyer&rsquo;s.",
-        "Get a Free Timber Evaluation", "timber"
+        "Get a Free Timber Evaluation", "timber", icon="pine"
     ) + two_col(
         """<h2>Why the &ldquo;on your side&rdquo; part matters</h2>
         <p>The State of Texas itself warns landowners. The <strong>Texas A&amp;M Forest Service runs a Timber Theft Hotline (1-800-364-3470)</strong> and has pursued indictments against loggers who underpaid landowners. The state&rsquo;s standing advice: hire a consulting forester to represent your interests, insist on competitive bids, and never trust a buyer blindly.</p>
@@ -213,7 +333,7 @@ def build_land_pillar():
         "Polk County · Lake Livingston · East Texas",
         "From raw timber to build-ready ground.",
         "Dozer, forestry mulcher, excavator, and dump truck — the right equipment for East Texas pine and hardwood. Local to Livingston, not driving in from another county.",
-        "Get a Free Estimate", "land", "btn alt"
+        "Get a Free Estimate", "land", "btn alt", icon="dozer"
     ) + two_col(
         """<h2>What I do</h2>
         <ul class="checks">
@@ -340,6 +460,7 @@ def build_thank_you():
 
 LAND_SUB = [
     {
+        "icon": "dozer",
         "slug": "/land/land-clearing/",
         "title": "Land Clearing in Polk County, TX — Rowe Land, Timber & Dozer",
         "description": "Clearing pine, hardwood, brush, and stumps on raw acreage and lake lots around Livingston and Lake Livingston. Dozer + mulcher + excavator.",
@@ -377,6 +498,7 @@ LAND_SUB = [
         "cta_body": "<p>Tell me where the land is and roughly what you&rsquo;ve got. I&rsquo;ll come walk it and give you a real number. Local trip — Polk County is home.</p>",
     },
     {
+        "icon": "mulcher",
         "slug": "/land/forestry-mulching/",
         "title": "Forestry Mulching in Polk County, TX — Rowe Land, Timber & Dozer",
         "description": "Selective, low-impact forestry mulching for underbrush, small trees, and trail clearing around Livingston and Lake Livingston. Keep the trees you want, lose the rest.",
@@ -411,6 +533,7 @@ LAND_SUB = [
         "cta_body": "<p>Send a few photos or just tell me where it is and roughly the acreage. I&rsquo;ll come look and tell you whether mulching, clearing, or both is the right job.</p>",
     },
     {
+        "icon": "dozer",
         "slug": "/land/dozer-grading/",
         "title": "Dozer Work & Grading in Polk County, TX — Rowe Land, Timber & Dozer",
         "description": "Dozer work, building pads, finish grading, and earth-moving around Livingston, Onalaska, and Lake Livingston. Real machine, real operator, real quote.",
@@ -446,6 +569,7 @@ LAND_SUB = [
         "cta_body": "<p>If you&rsquo;ve got a pad, a slope, or a stretch of ground that needs to be made flat, send me where it is. I&rsquo;ll come look.</p>",
     },
     {
+        "icon": "pond",
         "slug": "/land/ponds/",
         "title": "Pond Construction in Polk County, TX — Rowe Land, Timber & Dozer",
         "description": "Stock ponds, recreation ponds, and erosion-control ponds built with proper dam, spillway, and drainage. Polk County, Lake Livingston, surrounding counties.",
@@ -481,6 +605,7 @@ LAND_SUB = [
         "cta_body": "<p>Tell me where on the property you&rsquo;d like it and roughly how big. I&rsquo;ll walk the site with you and tell you what it&rsquo;ll really take.</p>",
     },
     {
+        "icon": "lake",
         "slug": "/land/lake-livingston-lots/",
         "title": "Lake Livingston Lot Clearing & Grading — Rowe Land, Timber & Dozer",
         "description": "Lakefront and near-lake lot clearing and grading around Lake Livingston — done with erosion control, buffer zones, and runoff in mind.",
@@ -510,6 +635,7 @@ LAND_SUB = [
         "cta_body": "<p>Tell me which side of the lake and which subdivision. I&rsquo;ll meet you out there and walk it with you.</p>",
     },
     {
+        "icon": "road",
         "slug": "/land/roads-pads-drainage/",
         "title": "Driveways, Pads & Drainage in Polk County, TX — Rowe Land, Timber & Dozer",
         "description": "Driveways, building pads, culverts, and drainage on rural East Texas property. Polk County, Lake Livingston, and surrounding counties.",
@@ -552,7 +678,7 @@ LAND_SUB = [
 
 def build_land_sub_pages():
     for p in LAND_SUB:
-        body = service_hero(p["eyebrow"], p["h1"], p["lede"], "Get a Free Estimate", "land", "btn alt")
+        body = service_hero(p["eyebrow"], p["h1"], p["lede"], "Get a Free Estimate", "land", "btn alt", icon=p.get("icon"))
         body += two_col(p["left"], p["right"])
         body += dark_cta(p["cta_h2"], p["cta_body"], "Get a Free Estimate", "land")
         render(p["slug"], p["title"], p["description"], body)
@@ -562,6 +688,7 @@ def build_land_sub_pages():
 
 TIMBER_SUB = [
     {
+        "icon": "pine",
         "slug": "/timber/sale-consulting/",
         "title": "Timber Sale Consulting in Polk County, TX — Rowe Land, Timber & Dozer",
         "description": "Selling timber in East Texas? Get a consultant who represents you — honest cruise, competitive bids, written contract before a tree comes down.",
@@ -597,6 +724,7 @@ TIMBER_SUB = [
         "cta_body": "<p>Tell me where the land is and roughly how many acres. I&rsquo;ll come look and tell you what it&rsquo;s worth — whether you sell with me or not.</p>",
     },
     {
+        "icon": "hardwood",
         "slug": "/timber/management/",
         "title": "Timber Management Plans in Polk County, TX — Rowe Land, Timber & Dozer",
         "description": "Long-term timber management for East Texas landowners — thinning schedules, replant, fire breaks, and harvest planning. Owner-operated, on your side.",
@@ -632,6 +760,7 @@ TIMBER_SUB = [
         "cta_body": "<p>Send a quick note — where the land is, roughly how many acres, and what you&rsquo;re hoping to do with it. I&rsquo;ll come walk it.</p>",
     },
     {
+        "icon": "pine",
         "slug": "/timber/harvest/",
         "title": "Timber Harvest Oversight in Polk County, TX — Rowe Land, Timber & Dozer",
         "description": "Independent oversight during your timber harvest — making sure what was sold is what gets cut, BMPs are followed, and the land is left right.",
@@ -665,7 +794,7 @@ TIMBER_SUB = [
 
 def build_timber_sub_pages():
     for p in TIMBER_SUB:
-        body = service_hero(p["eyebrow"], p["h1"], p["lede"], "Get a Free Timber Evaluation", "timber")
+        body = service_hero(p["eyebrow"], p["h1"], p["lede"], "Get a Free Timber Evaluation", "timber", icon=p.get("icon"))
         body += two_col(p["left"], p["right"])
         body += dark_cta(p["cta_h2"], p["cta_body"], "Get a Free Timber Evaluation", "timber")
         render(p["slug"], p["title"], p["description"], body)
@@ -674,10 +803,13 @@ def build_timber_sub_pages():
 # --- Service area -------------------------------------------------------------
 
 def build_service_area():
-    body = """<section class="hero"><div class="wrap">
-  <p class="eyebrow-line">Service area</p>
-  <h1>Polk County is home. Six counties is the working radius.</h1>
-  <p class="lede">Based in Livingston, working the Lake Livingston shoreline and the surrounding Piney Woods. Local trip — no hidden charge for driving in.</p>
+    body = """<section class="hero hero-illustrated"><div class="wrap">
+  <div>
+    <p class="eyebrow-line">Service area</p>
+    <h1>Polk County is home. Six counties is the working radius.</h1>
+    <p class="lede">Based in Livingston, working the Lake Livingston shoreline and the surrounding Piney Woods. Local trip — no hidden charge for driving in.</p>
+  </div>
+  <div class="hero-art">""" + SVGS["compass"] + """</div>
 </div></section>
 
 <section><div class="wrap two-col">
