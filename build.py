@@ -439,6 +439,37 @@ def build_contact():
            body)
 
 
+def build_404():
+    body = """<section class="hero"><div class="wrap">
+  <p class="eyebrow-line">404</p>
+  <h1>That page isn&rsquo;t here.</h1>
+  <p class="lede">Either the link is wrong, or I haven&rsquo;t built that page yet. Easiest fix is to start from the home page or give me a call.</p>
+  <p style="margin-top:1.5rem"><a class="btn" href="/">Back to the homepage</a> &nbsp; <a class="btn ghost" href="tel:""" + PHONE_TEL + """\">Call """ + PHONE_DISPLAY + """</a></p>
+</div></section>
+<section><div class="wrap two-col">
+  <div>
+    <h2>Looking for something specific?</h2>
+    <ul class="checks">
+      <li><a href="/timber/">Timber sales &amp; consulting</a></li>
+      <li><a href="/land/">Land clearing &amp; dozer work</a></li>
+      <li><a href="/service-area/">Service area</a></li>
+      <li><a href="/contact/">Contact</a></li>
+    </ul>
+  </div>
+  <div>
+    <h3>Or just call</h3>
+    <p>Working hours are daylight. <a href="tel:""" + PHONE_TEL + """\">""" + PHONE_DISPLAY + """</a></p>
+  </div>
+</div></section>"""
+    # 404 lives at /404.html — render manually since render() expects a directory
+    out = SITE_DIR / "404.html"
+    html = head("Page not found — Rowe Land, Timber & Dozer Services",
+                "That page isn't here. Try the home page or call (936) 239-2664.",
+                "/404") + HEADER + body + FOOTER
+    out.write_text(html, encoding="utf-8")
+    print("  wrote /404.html")
+
+
 def build_thank_you():
     body = """<section class="hero"><div class="wrap">
   <p class="eyebrow-line">Thanks</p>
@@ -886,6 +917,7 @@ def main():
     build_about()
     build_contact()
     build_thank_you()
+    build_404()
     build_sitemap()
     print("Done.")
 
