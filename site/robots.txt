@@ -1,0 +1,8 @@
+# Dev / pre-launch — site is staged, do not index.
+User-agent: *
+Disallow: /
+
+# When approved and live on rowelandtimber.com, replace with:
+# User-agent: *
+# Allow: /
+# Sitemap: https://www.rowelandtimber.com/sitemap.xml
