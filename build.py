@@ -18,89 +18,234 @@ def _svg(viewbox: str, body: str, cls: str = "ill", stroke: str = "currentColor"
     )
 
 SVGS = {
-    "pine": _svg("0 0 80 80",
-        # layered pine + trunk + ground hint
-        '<path d="M40 8 L24 28 L32 28 L18 46 L28 46 L14 64 L66 64 L52 46 L62 46 L48 28 L56 28 Z"/>'
-        '<path d="M40 64 V72"/>'
-        '<path d="M16 74 Q40 70 64 74"/>'),
-    "hardwood": _svg("0 0 80 80",
-        # round canopy with internal sketch + trunk + ground
-        '<circle cx="40" cy="32" r="22"/>'
-        '<path d="M28 24 q4 -4 10 -2"/>'
-        '<path d="M44 22 q6 0 10 4"/>'
-        '<path d="M30 40 q6 2 10 -2"/>'
-        '<path d="M50 40 q4 0 6 -2"/>'
-        '<path d="M40 54 V72"/>'
-        '<path d="M34 62 q-3 -2 -5 -6"/>'
-        '<path d="M46 62 q3 -2 5 -6"/>'
-        '<path d="M16 74 Q40 70 64 74"/>'),
-    "dozer": _svg("0 0 80 80",
-        # blade, arm, body, cab, tracks, ground
-        '<path d="M6 60 L18 36 L18 60 Z"/>'
-        '<path d="M18 50 L28 46"/>'
-        '<path d="M26 32 L58 32 L62 50 L26 50 Z"/>'
-        '<path d="M34 32 L36 20 L52 20 L54 32"/>'
-        '<path d="M44 20 L44 32"/>'
-        '<rect x="20" y="56" width="52" height="12" rx="6"/>'
-        '<circle cx="30" cy="62" r="2.5"/>'
-        '<circle cx="62" cy="62" r="2.5"/>'
-        '<path d="M4 74 Q40 70 76 74"/>'),
-    "mulcher": _svg("0 0 80 80",
-        # excavator-style with cutting head
-        '<rect x="10" y="56" width="48" height="12" rx="6"/>'
-        '<circle cx="20" cy="62" r="2.5"/>'
-        '<circle cx="48" cy="62" r="2.5"/>'
-        '<path d="M16 36 L52 36 L56 56 L14 56 Z"/>'
-        '<path d="M22 36 L26 24 L46 24 L50 36"/>'
-        '<path d="M52 40 L66 22"/>'
-        '<path d="M66 22 L72 38"/>'
-        '<circle cx="72" cy="44" r="6"/>'
-        '<path d="M68 44 L76 44 M72 40 L72 48"/>'
-        '<path d="M4 74 Q40 70 76 74"/>'),
-    "pond": _svg("0 0 80 80",
-        # oval water + cattails + ripples
-        '<ellipse cx="40" cy="52" rx="32" ry="10"/>'
-        '<path d="M22 56 q4 -1 8 0"/>'
-        '<path d="M40 58 q4 -1 8 0"/>'
-        '<path d="M10 50 L8 28"/>'
-        '<ellipse cx="8" cy="26" rx="2" ry="5"/>'
-        '<path d="M16 50 L14 34"/>'
-        '<ellipse cx="14" cy="32" rx="2" ry="4"/>'
-        '<path d="M70 50 L72 30"/>'
-        '<ellipse cx="72" cy="28" rx="2" ry="5"/>'
-        '<path d="M4 74 Q40 70 76 74"/>'),
-    "lake": _svg("0 0 80 80",
-        # waves + dock + shoreline
-        '<path d="M4 26 q6 -4 12 0 t12 0 t12 0 t12 0 t12 0 t12 0"/>'
-        '<path d="M4 36 q6 -4 12 0 t12 0 t12 0 t12 0 t12 0 t12 0"/>'
-        '<path d="M4 46 q6 -4 12 0 t12 0 t12 0 t12 0 t12 0 t12 0"/>'
-        '<path d="M40 16 L40 38"/>'
-        '<path d="M34 16 L46 16"/>'
-        '<path d="M36 20 L36 30 M44 20 L44 30"/>'
-        '<path d="M4 64 L22 64 Q30 60 38 64 L52 64 Q60 60 66 64 L76 64"/>'
-        '<path d="M16 64 L18 56 L20 64 Z M60 64 L62 56 L64 64 Z"/>'),
-    "road": _svg("0 0 80 80",
-        # perspective road + trees + center dashes
-        '<path d="M20 72 L36 18"/>'
-        '<path d="M60 72 L44 18"/>'
-        '<path d="M40 62 L40 58 M40 50 L40 46 M40 38 L40 34 M40 26 L40 22"/>'
-        '<circle cx="10" cy="36" r="6"/>'
-        '<path d="M10 42 L10 50"/>'
-        '<circle cx="70" cy="36" r="6"/>'
-        '<path d="M70 42 L70 50"/>'
-        '<path d="M4 74 H76"/>'),
-    "compass": _svg("0 0 80 80",
-        # simple compass — for service-area page
-        '<circle cx="40" cy="40" r="28"/>'
-        '<path d="M40 14 L46 40 L40 66 L34 40 Z"/>'
-        '<path d="M14 40 L40 46 L66 40 L40 34 Z"/>'
-        '<circle cx="40" cy="40" r="3"/>'),
+    "pine": _svg("0 0 120 120",
+        # detailed conifer — sky tint, layered branches with shading, textured trunk, ground tufts
+        ''
+        # sun / sky hint
+        '<circle cx="98" cy="22" r="6" stroke="#c89b3c" opacity="0.7"/>'
+        '<path d="M98 11 V6 M98 38 V33 M85 22 H80 M111 22 H116" stroke="#c89b3c" opacity="0.7" stroke-width="1.4"/>'
+        # background tree (smaller, lighter)
+        '<path d="M86 80 L74 60 L80 60 L72 46 L78 46 L70 32 L102 32 L94 46 L100 46 L92 60 L98 60 L86 80 Z" stroke="#2a4a32" opacity="0.5" stroke-width="1.5"/>'
+        # main tree — multi-tier with internal shading
+        '<path d="M60 12 L42 32 L48 32 L34 50 L42 50 L26 70 L94 70 L78 50 L86 50 L72 32 L78 32 Z"/>'
+        # internal shading hatches (cross-strokes)
+        '<path d="M52 22 L56 30 M64 22 L68 30 M44 40 L50 48 M70 40 L76 48 M36 58 L46 66 M74 58 L84 66" stroke-width="1.2" opacity="0.55"/>'
+        # trunk + bark texture
+        '<path d="M54 70 L54 86 L66 86 L66 70"/>'
+        '<path d="M58 74 L58 82 M62 74 L62 82" stroke-width="1.2" opacity="0.6"/>'
+        # ground line with tufts
+        '<path d="M8 92 Q40 86 60 90 T112 92"/>'
+        '<path d="M20 90 L18 84 M22 90 L24 86 M88 90 L86 84 M90 90 L92 86" stroke-width="1.4"/>'),
+
+    "hardwood": _svg("0 0 120 120",
+        # broad hardwood with leaf-cluster canopy + textured trunk
+        ''
+        # canopy main mass
+        '<path d="M28 50 q-8 -14 6 -22 q4 -14 18 -10 q10 -10 24 -2 q14 -4 18 12 q12 4 6 22 q6 14 -8 18 q-6 12 -22 6 q-12 10 -24 2 q-14 4 -18 -10 q-12 -4 0 -16"/>'
+        # canopy interior leaf clusters
+        '<circle cx="46" cy="44" r="8" opacity="0.55" stroke-width="1.4"/>'
+        '<circle cx="68" cy="38" r="9" opacity="0.55" stroke-width="1.4"/>'
+        '<circle cx="80" cy="52" r="7" opacity="0.55" stroke-width="1.4"/>'
+        '<circle cx="58" cy="58" r="9" opacity="0.55" stroke-width="1.4"/>'
+        # trunk
+        '<path d="M54 76 L52 100 L68 100 L66 76"/>'
+        '<path d="M58 82 q2 4 0 10 M62 82 q-2 4 0 10" stroke-width="1.2" opacity="0.6"/>'
+        # exposed roots
+        '<path d="M52 100 Q44 102 40 106 M68 100 Q76 102 80 106"/>'
+        # ground
+        '<path d="M8 108 Q40 104 60 106 T112 108"/>'
+        '<path d="M22 106 L20 100 M96 106 L98 100" stroke-width="1.4"/>'),
+
+    "dozer": _svg("0 0 140 100",
+        # detailed side-view dozer with blade, arm, cab, exhaust, track teeth, ground
+        ''
+        # blade with vertical ribbing
+        '<path d="M8 76 L26 40 L26 76 Z"/>'
+        '<path d="M14 70 L14 50 M19 72 L19 46" stroke-width="1.2" opacity="0.7"/>'
+        # push arm to blade
+        '<path d="M26 60 L42 52"/>'
+        '<path d="M26 54 L42 46"/>'
+        # body
+        '<path d="M40 38 L96 38 L102 60 L40 60 Z"/>'
+        # cab (raised)
+        '<path d="M52 38 L56 22 L86 22 L90 38"/>'
+        # windows
+        '<path d="M62 25 L62 38 M76 25 L76 38" stroke-width="1.2"/>'
+        # exhaust stack
+        '<path d="M96 38 L96 18 L100 18 L100 38"/>'
+        '<path d="M96 18 q-2 -4 2 -6 q4 2 2 6" stroke="#b1542b" stroke-width="1.6" opacity="0.7"/>'
+        # body detail line
+        '<path d="M44 48 L96 48" stroke-width="1.2" opacity="0.6"/>'
+        # track with multiple wheels + teeth
+        '<rect x="32" y="66" width="84" height="18" rx="9"/>'
+        '<circle cx="44" cy="75" r="4"/>'
+        '<circle cx="64" cy="75" r="4"/>'
+        '<circle cx="84" cy="75" r="4"/>'
+        '<circle cx="104" cy="75" r="4"/>'
+        '<path d="M36 84 L40 88 M44 84 L48 88 M52 84 L56 88 M60 84 L64 88 M68 84 L72 88 M76 84 L80 88 M84 84 L88 88 M92 84 L96 88 M100 84 L104 88 M108 84 L112 88" stroke-width="1.2" opacity="0.7"/>'
+        # dirt being pushed
+        '<path d="M2 92 Q6 86 12 90 Q14 84 18 88" stroke-width="1.4" opacity="0.6"/>'
+        # ground
+        '<path d="M0 96 H140"/>'),
+
+    "mulcher": _svg("0 0 140 100",
+        # tracked excavator with mulcher cutter head — boom, arm, hydraulic detail
+        ''
+        # track
+        '<rect x="14" y="68" width="74" height="18" rx="9"/>'
+        '<circle cx="26" cy="77" r="4"/>'
+        '<circle cx="52" cy="77" r="4"/>'
+        '<circle cx="76" cy="77" r="4"/>'
+        '<path d="M18 86 L22 90 M26 86 L30 90 M34 86 L38 90 M42 86 L46 90 M50 86 L54 90 M58 86 L62 90 M66 86 L70 90 M74 86 L78 90 M82 86 L86 90" stroke-width="1.2" opacity="0.7"/>'
+        # cab body
+        '<path d="M22 48 L80 48 L86 68 L18 68 Z"/>'
+        # cab top
+        '<path d="M32 48 L36 28 L70 28 L74 48"/>'
+        # cab window cross
+        '<path d="M48 32 L48 48 M58 32 L58 48" stroke-width="1.2"/>'
+        # boom (main arm — angled up)
+        '<path d="M80 54 L106 24"/>'
+        '<path d="M80 60 L108 30"/>'
+        # hydraulic cylinder on boom
+        '<rect x="86" y="36" width="14" height="6" rx="2" transform="rotate(-50 93 39)" opacity="0.7"/>'
+        # secondary arm down to head
+        '<path d="M106 24 L116 50"/>'
+        '<path d="M108 30 L118 52"/>'
+        # mulcher cutter head
+        '<circle cx="118" cy="58" r="10"/>'
+        # cutter teeth (radial marks)
+        '<path d="M118 48 V46 M128 58 H130 M118 68 V70 M108 58 H106 M125 51 L127 49 M125 65 L127 67 M111 65 L109 67 M111 51 L109 49" stroke-width="1.4"/>'
+        # debris below mulcher
+        '<path d="M114 76 L113 84 M118 76 L118 84 M122 76 L123 84" stroke="#b1542b" stroke-width="1.4" opacity="0.7"/>'
+        # ground
+        '<path d="M0 96 H140"/>'),
+
+    "pond": _svg("0 0 120 100",
+        # detailed pond with cattails, ripples, fish jump, hatched water
+        ''
+        # water body
+        '<ellipse cx="60" cy="64" rx="46" ry="14"/>'
+        # ripple lines (concentric)
+        '<ellipse cx="60" cy="64" rx="32" ry="9" opacity="0.55" stroke-width="1.4"/>'
+        '<ellipse cx="60" cy="64" rx="18" ry="5" opacity="0.45" stroke-width="1.4"/>'
+        # water hatching
+        '<path d="M28 64 q4 -1 8 0 M44 70 q4 -1 8 0 M72 60 q4 -1 8 0 M84 68 q4 -1 8 0" stroke-width="1.2" opacity="0.6"/>'
+        # fish jump (small arc + splash)
+        '<path d="M62 54 q3 -8 8 -2" stroke-width="1.6"/>'
+        '<path d="M58 52 L56 48 M64 50 L65 46 M70 54 L72 50" stroke-width="1.2" opacity="0.7"/>'
+        # left cattails (3 of varying heights)
+        '<path d="M12 64 L10 30"/>'
+        '<ellipse cx="10" cy="28" rx="2.5" ry="7"/>'
+        '<path d="M10 21 L10 16" stroke-width="1.4"/>'
+        '<path d="M20 64 L18 40"/>'
+        '<ellipse cx="18" cy="38" rx="2.2" ry="5"/>'
+        '<path d="M28 64 L26 46"/>'
+        '<ellipse cx="26" cy="44" rx="2" ry="4"/>'
+        # cattail leaves at base
+        '<path d="M8 62 Q4 50 8 40 M14 62 Q18 50 14 42" stroke-width="1.2" opacity="0.7"/>'
+        # right cattails
+        '<path d="M104 64 L106 28"/>'
+        '<ellipse cx="106" cy="26" rx="2.5" ry="7"/>'
+        '<path d="M106 19 L106 14" stroke-width="1.4"/>'
+        '<path d="M96 64 L98 44"/>'
+        '<ellipse cx="98" cy="42" rx="2.2" ry="5"/>'
+        '<path d="M108 62 Q112 50 108 40 M102 62 Q98 50 102 42" stroke-width="1.2" opacity="0.7"/>'
+        # dragonfly (just a hint)
+        '<path d="M82 36 L86 36 M84 34 L84 38" stroke-width="1.4"/>'
+        # ground / bank
+        '<path d="M0 88 Q40 82 60 86 T120 88"/>'
+        '<path d="M40 86 L38 80 M42 86 L44 82 M76 86 L74 80 M78 86 L80 82" stroke-width="1.4"/>'),
+
+    "lake": _svg("0 0 140 100",
+        # lake scene with dock, boat, distant shoreline trees, waves
+        ''
+        # sky hint
+        '<path d="M20 12 q8 -4 16 0 q8 -4 16 0" stroke="#c89b3c" opacity="0.5" stroke-width="1.4"/>'
+        '<path d="M84 16 q8 -4 16 0 q8 -4 16 0" stroke="#c89b3c" opacity="0.5" stroke-width="1.4"/>'
+        # distant shoreline + trees (lighter)
+        '<path d="M0 38 L20 38 L26 32 L34 38 L48 38 L54 30 L62 38 L80 38 L88 32 L96 38 L140 38" opacity="0.55" stroke-width="1.5"/>'
+        # waves (three layers)
+        '<path d="M0 48 q8 -4 16 0 t16 0 t16 0 t16 0 t16 0 t16 0 t16 0 t16 0 t16 0"/>'
+        '<path d="M0 60 q8 -4 16 0 t16 0 t16 0 t16 0 t16 0 t16 0 t16 0 t16 0 t16 0"/>'
+        '<path d="M0 72 q8 -4 16 0 t16 0 t16 0 t16 0 t16 0 t16 0 t16 0 t16 0 t16 0"/>'
+        # dock with planks and posts
+        '<path d="M68 30 L68 56"/>'
+        '<path d="M76 30 L76 56"/>'
+        '<path d="M62 30 L82 30"/>'
+        '<path d="M64 34 L80 34" stroke-width="1.2" opacity="0.7"/>'
+        '<path d="M64 40 L80 40" stroke-width="1.2" opacity="0.7"/>'
+        '<path d="M64 46 L80 46" stroke-width="1.2" opacity="0.7"/>'
+        # dock posts (in water)
+        '<path d="M68 56 L68 64 M76 56 L76 64"/>'
+        # small boat on water
+        '<path d="M100 64 L116 64 L114 70 L102 70 Z"/>'
+        '<path d="M108 64 L108 56"/>'
+        '<path d="M108 56 L114 64" stroke-width="1.2"/>'
+        # foreground shoreline
+        '<path d="M0 84 L24 84 Q32 80 40 84 L60 84 Q66 80 72 84 L96 84 Q104 80 110 84 L140 84"/>'
+        # foreground trees on shore (more detail than before)
+        '<path d="M16 84 L18 74 L20 84 Z M16 80 L20 80" stroke-width="1.4"/>'
+        '<path d="M86 84 L88 72 L90 84 Z M86 78 L90 78" stroke-width="1.4"/>'
+        # rocks
+        '<ellipse cx="48" cy="86" rx="3" ry="2" opacity="0.7" stroke-width="1.4"/>'
+        '<ellipse cx="124" cy="86" rx="3" ry="2" opacity="0.7" stroke-width="1.4"/>'),
+
+    "road": _svg("0 0 120 100",
+        # rural road perspective with horizon, fence posts, trees
+        ''
+        # horizon hills
+        '<path d="M0 38 Q20 28 40 36 Q60 26 80 34 Q100 28 120 36" opacity="0.5" stroke-width="1.5"/>'
+        # sun / sky
+        '<circle cx="92" cy="22" r="5" stroke="#c89b3c" opacity="0.6"/>'
+        # road edges (perspective)
+        '<path d="M28 92 L54 36"/>'
+        '<path d="M92 92 L66 36"/>'
+        # road center dashes
+        '<path d="M60 80 L60 74 M60 66 L60 60 M60 54 L60 48"/>'
+        # ditch lines
+        '<path d="M14 92 L46 36" opacity="0.5" stroke-width="1.4"/>'
+        '<path d="M106 92 L74 36" opacity="0.5" stroke-width="1.4"/>'
+        # left trees (pine + hardwood)
+        '<path d="M14 70 L8 50 L12 50 L6 38 L22 38 L16 50 L20 50 L14 70 Z" stroke-width="1.6"/>'
+        '<path d="M14 70 L14 78" stroke-width="1.4"/>'
+        # right trees
+        '<circle cx="104" cy="60" r="9" stroke-width="1.6"/>'
+        '<path d="M104 69 L104 78" stroke-width="1.4"/>'
+        # fence posts on left
+        '<path d="M30 86 L30 78 M38 78 L38 70" stroke-width="1.4" opacity="0.7"/>'
+        # fence posts on right
+        '<path d="M90 86 L90 78 M82 78 L82 70" stroke-width="1.4" opacity="0.7"/>'
+        # ground
+        '<path d="M0 92 H120"/>'),
+
+    "compass": _svg("0 0 120 120",
+        # detailed compass rose with cardinal marks, decorative rings
+        ''
+        # outer ring
+        '<circle cx="60" cy="60" r="48"/>'
+        '<circle cx="60" cy="60" r="42" opacity="0.55" stroke-width="1.4"/>'
+        # cardinal direction tick marks
+        '<path d="M60 12 L60 20 M60 100 L60 108 M12 60 L20 60 M100 60 L108 60" stroke-width="2"/>'
+        # 8-point compass star — main N/S/E/W
+        '<path d="M60 20 L68 60 L60 100 L52 60 Z"/>'
+        '<path d="M20 60 L60 52 L100 60 L60 68 Z"/>'
+        # secondary diagonals (NE/SE/SW/NW) — smaller, lighter
+        '<path d="M30 30 L58 58 L52 30 Z M30 30 L58 58 L30 52 Z" opacity="0.65" stroke-width="1.4"/>'
+        '<path d="M90 30 L62 58 L68 30 Z M90 30 L62 58 L90 52 Z" opacity="0.65" stroke-width="1.4"/>'
+        '<path d="M30 90 L58 62 L30 68 Z M30 90 L58 62 L52 90 Z" opacity="0.65" stroke-width="1.4"/>'
+        '<path d="M90 90 L62 62 L90 68 Z M90 90 L62 62 L68 90 Z" opacity="0.65" stroke-width="1.4"/>'
+        # center hub
+        '<circle cx="60" cy="60" r="4"/>'
+        # N label mark
+        '<path d="M55 8 L55 4 L60 4 M60 4 L65 4 L65 8" stroke-width="1.4"/>'),
+
     "mark": _svg("0 0 40 40",
-        # tiny brand mark — pine inside a circle
+        # brand mark — pine in a circle with subtle inner ring
         '<circle cx="20" cy="20" r="18"/>'
-        '<path d="M20 8 L13 18 L17 18 L11 26 L15 26 L8 34 L32 34 L25 26 L29 26 L23 18 L27 18 Z"/>'
-        '<path d="M20 34 V36"/>',
-        sw="1.8"),
+        '<circle cx="20" cy="20" r="15" opacity="0.5" stroke-width="1.2"/>'
+        '<path d="M20 8 L13 18 L17 18 L11 26 L15 26 L8 33 L32 33 L25 26 L29 26 L23 18 L27 18 Z"/>'
+        '<path d="M19 33 L19 36 L21 36 L21 33"/>',
+        sw="1.6"),
     "tree-dozer": _svg("0 0 120 80",
         # composite hero motif: pine + dozer side-by-side
         '<path d="M22 6 L8 24 L15 24 L2 40 L11 40 L0 56 L44 56 L33 40 L41 40 L28 24 L34 24 Z"/>'
@@ -287,7 +432,7 @@ def build_home():
   <p style="margin-top:1.5rem">
     <a class="btn alt" href="/contact/">Send a message</a>
     &nbsp;
-    <a class="btn ghost" href="tel:{PHONE_TEL}" style="color:var(--gold);border-color:var(--gold)">Call {PHONE_DISPLAY}</a>
+    <a class="btn ghost" href="tel:{PHONE_TEL}" style="color:#c89b3c;border-color:#c89b3c">Call {PHONE_DISPLAY}</a>
   </p>
 </div></section>"""
     render("/", "Rowe Land, Timber & Dozer Services — Livingston, TX",
