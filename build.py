@@ -861,13 +861,20 @@ def build_service_area():
     <h2>Polk County (home)</h2>
     <p>Livingston, Onalaska, Goodrich, Corrigan, Leggett, Camden, Moscow, Seven Oaks, Indian Springs, Big Thicket, and the Lake Livingston shoreline. This is where I&rsquo;m based and where most jobs are.</p>
 
-    <h2>Surrounding counties</h2>
+    <h2>Counties we serve</h2>
     <ul class="checks">
-      <li><strong>San Jacinto County</strong> — Coldspring, Point Blank, Oakhurst, the west side of Lake Livingston</li>
-      <li><strong>Trinity County</strong> — Trinity, Groveton, Apple Springs, the northwest shoreline</li>
-      <li><strong>Tyler County</strong> — Woodville, Colmesneil, Chester</li>
-      <li><strong>Angelina County</strong> — Lufkin, Diboll, Huntington, Zavalla</li>
-      <li><strong>Walker County</strong> — Huntsville, New Waverly (the same county the bigger out-of-area land-clearing outfits drive in from — we&rsquo;re happy to work it too)</li>
+      <li><a href="/service-area/polk-county/"><strong>Polk County</strong></a> — home; Livingston, Onalaska, Goodrich, Corrigan, Leggett, Camden, Moscow, and the Lake Livingston shoreline</li>
+      <li><a href="/service-area/san-jacinto-county/"><strong>San Jacinto County</strong></a> — Coldspring, Point Blank, Oakhurst, west side of Lake Livingston</li>
+      <li><a href="/service-area/trinity-county/"><strong>Trinity County</strong></a> — Trinity, Groveton, Apple Springs, northwest shoreline</li>
+      <li><a href="/service-area/tyler-county/"><strong>Tyler County</strong></a> — Woodville, Colmesneil, Chester</li>
+      <li><a href="/service-area/angelina-county/"><strong>Angelina County</strong></a> — Lufkin, Diboll, Huntington, Zavalla</li>
+      <li><a href="/service-area/walker-county/"><strong>Walker County</strong></a> — Huntsville, New Waverly</li>
+    </ul>
+
+    <h2>Lake Livingston by area</h2>
+    <ul class="checks">
+      <li><a href="/service-area/lake-livingston-onalaska/"><strong>Lake Livingston — Onalaska</strong></a> (east side, Polk County)</li>
+      <li><a href="/service-area/lake-livingston-coldspring/"><strong>Lake Livingston — Coldspring</strong></a> (west side, San Jacinto County)</li>
     </ul>
   </div>
   <div>
@@ -1446,6 +1453,751 @@ GUIDES = [
 ]
 
 
+GUIDES += [
+    # ---- Timber: what is a timber cruise ----
+    {
+        "slug": "/guides/what-is-a-timber-cruise/",
+        "title": "What Is a Timber Cruise? How Foresters Measure Standing Timber",
+        "description": "A timber cruise is a systematic sample of your standing trees to estimate total volume by species and product. Here's how it works and why it matters.",
+        "h1": "What is a timber cruise?",
+        "eyebrow": "Timber education",
+        "category": "Timber",
+        "icon": "pine",
+        "answer": "<strong>A timber cruise is a systematic sample-based survey of standing trees on a tract, performed by a forester to estimate total volume by species, size, and product.</strong> Cruisers measure tree diameter, height, defects, and species across a statistically valid sample of plots, then scale the result up to the whole tract. The cruise produces the dollar number you should expect at sale.",
+        "body_html": """
+<p>Most landowners hear &ldquo;cruise&rdquo; and assume a forester drives around looking at trees. The real work is more rigorous than that — and it's the only honest way to know what your timber is actually worth before you list it.</p>
+
+<h2>What gets measured</h2>
+<ul class="checks">
+  <li><strong>Diameter at breast height (DBH)</strong> — measured 4.5&Prime; off the ground</li>
+  <li><strong>Merchantable height</strong> — number of logs the tree will produce</li>
+  <li><strong>Species</strong> — pine, mixed hardwood, individual hardwood varieties</li>
+  <li><strong>Defects</strong> — fork, sweep, decay, fire scar, lightning</li>
+  <li><strong>Product class</strong> — sawtimber, chip-n-saw, pulpwood, plylog</li>
+</ul>
+
+<h2>Where the measurements come from</h2>
+<p>Cruisers walk plots — fixed-area plots, variable-radius (prism) plots, or strip plots — placed at intervals across the stand. The plot count depends on size and variability; a 40-acre uniform pine plantation might take 20–30 plots, a complex mixed hardwood stand more. Each plot is measured, recorded, and statistically scaled to total tract volume.</p>
+
+<h2>What you get</h2>
+<ol>
+  <li>Tons per acre by product (pine sawtimber, pine chip-n-saw, pine pulpwood, hardwood)</li>
+  <li>Total tract volume in tons</li>
+  <li>Estimated dollar value at current stumpage prices</li>
+  <li>Recommended sale type (final harvest, thinning, salvage)</li>
+  <li>Map of the stand with boundaries and any special features</li>
+</ol>
+
+<h2>Why a cruise matters</h2>
+<p>The cruise is the document you take to bidders. Without it, you're trusting whoever shows up. With it, you can put your sale out competitively and verify what comes off the land matches what was sold.</p>
+""",
+        "faqs": [
+            ("How long does a cruise take?",
+             "A 40-acre tract usually takes 4–8 hours in the field plus a day to process. Larger or more complex stands take longer."),
+            ("How much does a timber cruise cost?",
+             "If we cruise and list the sale on your behalf, the cruise is included in the consulting fee (typically 8–12% of sale price). Standalone cruises run roughly $15–$30 per acre depending on tract size and complexity."),
+            ("How accurate is a cruise?",
+             "A properly run cruise on uniform stands is typically within ±10% of actual sold volume. Higher variability stands have wider confidence intervals."),
+            ("Can the buyer also do the cruise?",
+             "They can, and most do — but their cruise informs their offer, not your decision. An independent cruise from someone on your side is the whole point."),
+            ("Do I need a cruise to sell timber?",
+             "Not legally. But selling timber without one is selling on faith. Texas A&M Forest Service strongly recommends a cruise before any meaningful sale."),
+        ],
+        "related": ["/guides/how-much-is-my-timber-worth/", "/guides/timber-buyer-vs-consultant/", "/timber/sale-consulting/"],
+        "cta": ("Get a Free Timber Evaluation", "timber"),
+    },
+
+    # ---- Timber: management plans ----
+    {
+        "slug": "/guides/timber-management-plan-texas/",
+        "title": "Timber Management Plan in Texas — What It Covers & Why You Need One",
+        "description": "A timber management plan is a written long-term strategy for your forest land covering thinning, harvest, replant, BMPs, and tax considerations.",
+        "h1": "Timber management plan Texas",
+        "eyebrow": "Long-term management",
+        "category": "Timber",
+        "icon": "hardwood",
+        "answer": "<strong>A timber management plan is a written document that schedules thinnings, sets final-harvest timing, plans replant, lays out access roads and fire breaks, and aligns your stand with your goals — income, recreation, wildlife, legacy, or sale.</strong> Most plans cover a 30-to-40-year horizon and are updated every 5 years.",
+        "body_html": """
+<p>Owning timberland without a plan is like owning rental property without leases. The asset still works, but you're leaving money on the table and giving up control.</p>
+
+<h2>What a plan covers</h2>
+<ul class="checks">
+  <li><strong>Stand inventory</strong> — current age, species, density, volume</li>
+  <li><strong>Thinning schedule</strong> — when to thin, how heavy, target residual density</li>
+  <li><strong>Final harvest year</strong> — based on stand growth curves and goals</li>
+  <li><strong>Replant plan</strong> — species selection, density, site prep, herbicide</li>
+  <li><strong>Roads &amp; access</strong> — how to get equipment in and logs out</li>
+  <li><strong>Fire breaks</strong> — bordering ag fields, neighbors, structures</li>
+  <li><strong>BMPs</strong> — Best Management Practices for water quality</li>
+  <li><strong>Wildlife enhancements</strong> — food plots, edges, mast trees</li>
+  <li><strong>Tax considerations</strong> — to discuss with your CPA</li>
+</ul>
+
+<h2>Who needs one</h2>
+<ul class="checks">
+  <li>You own 20+ acres of pine or mixed stand</li>
+  <li>You inherited timberland and don't know what's on it</li>
+  <li>You're managing for long-term family ownership, not just one sale</li>
+  <li>You're absentee — don't live on the property</li>
+  <li>You want to keep ag valuation while running a real timber operation</li>
+</ul>
+
+<h2>What a plan does NOT do</h2>
+<p>It doesn't bind you. It's your plan, on paper, that you can change. It also doesn't replace the cruise that precedes any specific sale — a management plan is the long horizon; a cruise is the snapshot at sale time.</p>
+""",
+        "faqs": [
+            ("Does Texas require a management plan?",
+             "Not generally, but a written plan can support ag/wildlife valuation and is required for certain cost-share programs (like NRCS EQIP)."),
+            ("How much does a plan cost?",
+             "Standalone plans typically run $400–$1,500 depending on tract size and detail. Bundled with our consulting work, we often include a basic plan."),
+            ("How often does it get updated?",
+             "Every 5 years is standard. After major events (storm damage, beetle outbreak) — sooner."),
+            ("Will a plan help with property taxes?",
+             "Often yes. A written plan supports the ag valuation and can document the &ldquo;degree of intensity&rdquo; counties look for. Talk to your appraisal district."),
+        ],
+        "related": ["/timber/management/", "/guides/how-much-is-my-timber-worth/", "/guides/do-i-need-a-forestry-consultant/"],
+        "cta": ("Get a Free Timber Evaluation", "timber"),
+    },
+
+    # ---- Timber: do I need a consultant ----
+    {
+        "slug": "/guides/do-i-need-a-forestry-consultant/",
+        "title": "Do I Need a Forestry Consultant to Sell Timber?",
+        "description": "If your sale is more than a few thousand dollars, hiring a consultant typically returns more than it costs. Here's how to decide.",
+        "h1": "Do I need a forestry consultant to sell timber?",
+        "eyebrow": "Decision guide",
+        "category": "Timber",
+        "icon": "pine",
+        "answer": "<strong>If your timber sale is worth more than about $5,000, hiring a consultant typically returns more than it costs.</strong> Competitive bidding from a consultant-run sale routinely lifts the final price 15–40% — easily covering the 8–12% consulting fee. The Texas A&amp;M Forest Service formally recommends consultants for significant sales.",
+        "body_html": """
+<p>The honest answer is &ldquo;most of the time, yes.&rdquo; The exceptions are small enough that they're easy to identify.</p>
+
+<h2>When a consultant clearly pays for themselves</h2>
+<ul class="checks">
+  <li>Stand is 10+ acres</li>
+  <li>Estimated sale value over $5,000</li>
+  <li>You've never done a timber sale before</li>
+  <li>You inherited the land and don't know what's on it</li>
+  <li>Someone offered you a price out of the blue</li>
+  <li>You're clearing for a build</li>
+  <li>You can't be on the property during the harvest</li>
+</ul>
+
+<h2>When a direct sale to a buyer is fine</h2>
+<ul class="checks">
+  <li>Very small — a few trees for a personal sawmill</li>
+  <li>You already know the buyer well and have history together</li>
+  <li>Pure salvage where one nearby mill is the only realistic buyer</li>
+</ul>
+
+<h2>The math (simplified)</h2>
+<table>
+  <thead><tr><th></th><th>Direct sale</th><th>Consultant-run</th></tr></thead>
+  <tbody>
+    <tr><td>Volume (tons)</td><td>2,000</td><td>2,000</td></tr>
+    <tr><td>Buyer price/ton</td><td>$15</td><td>$19 (competitive bids)</td></tr>
+    <tr><td>Gross</td><td>$30,000</td><td>$38,000</td></tr>
+    <tr><td>Consultant fee (10%)</td><td>—</td><td>−$3,800</td></tr>
+    <tr><td><strong>Net to landowner</strong></td><td><strong>$30,000</strong></td><td><strong>$34,200</strong></td></tr>
+  </tbody>
+</table>
+<p class="source-note">Illustrative; your stand and market will differ. Competitive-bidding lifts of 15–40% are typical but not guaranteed.</p>
+""",
+        "faqs": [
+            ("How is a consultant paid?",
+             "Typically as a percentage of final sale price (8–12%), paid from the proceeds. So the fee is essentially self-funded by the higher price competitive bidding produces."),
+            ("Can I get bids without a consultant?",
+             "Theoretically yes — but qualified buyers will rarely take a homemade RFP seriously. A consultant brings the relationships, the cruise data, and the contract template."),
+            ("What if my timber is worth less than $5,000?",
+             "A consultant may still make sense if you don't know what you have. For very small sales, talk to us first — we'll tell you straight whether it's worth hiring out."),
+            ("Are consultants licensed in Texas?",
+             "Not by the state. That's why credentials, references, and a clear written agreement matter."),
+        ],
+        "related": ["/guides/timber-buyer-vs-consultant/", "/timber/sale-consulting/", "/guides/how-much-is-my-timber-worth/"],
+        "cta": ("Get a Free Timber Evaluation", "timber"),
+    },
+
+    # ---- Timber: how do timber sales work ----
+    {
+        "slug": "/guides/how-do-timber-sales-work-in-texas/",
+        "title": "How Do Timber Sales Work in Texas? Process & Timeline",
+        "description": "A Texas timber sale typically takes 2–4 months from first call to final payment. Here's exactly what happens at each step and what to expect.",
+        "h1": "How do timber sales work in Texas?",
+        "eyebrow": "Process & timeline",
+        "category": "Timber",
+        "icon": "pine",
+        "answer": "<strong>A Texas timber sale typically takes 2–4 months from start to final payment.</strong> The phases are: cruise (1–2 weeks), competitive bidding (2–4 weeks), contract signing (1 week), harvest (2–8 weeks), and close-out + final payment (1–4 weeks). Most landowners are paid weekly off mill scale tickets during the harvest.",
+        "body_html": """
+<p>A timber sale is more like selling a business than selling a car. Several moving pieces, a few signed documents, and a clear sequence that protects both sides.</p>
+
+<h2>The phases</h2>
+<h3>1. Cruise &amp; evaluation (week 1–2)</h3>
+<p>A forester walks the land, measures the stand, and tells you what you have and what it should sell for.</p>
+
+<h3>2. Bidding (week 2–6)</h3>
+<p>Your consultant prepares a prospectus, sends it to qualified buyers, and collects sealed bids. You pick the winning bid based on price, terms, and buyer reputation.</p>
+
+<h3>3. Contract (week 6–7)</h3>
+<p>A written contract specifies boundaries, products, prices, payment terms, BMPs, and cleanup. Both sides sign. Performance bonds or escrow are common.</p>
+
+<h3>4. Harvest (week 7–15)</h3>
+<p>The crew arrives. Trees are cut, skidded to a deck, loaded on trucks, and weighed at the mill. Scale tickets come back. You're paid weekly against actual scale.</p>
+
+<h3>5. Close-out (week 15–17)</h3>
+<p>The crew leaves the land. Roads are graded, decks cleaned, debris managed. Final payment reconciles to total scale. Land is yours again, with options: replant, pasture, build, hold.</p>
+
+<h2>How you actually get paid</h2>
+<p>Most modern Texas sales pay per-ton off mill scale tickets, weekly. The contract specifies which mills are approved and the per-ton price by product. Each truckload is weighed at the mill; that weight (minus mill-deduction for off-grade, if any) sets that load's payout to you.</p>
+
+<h2>Common timing surprises</h2>
+<ul class="checks">
+  <li><strong>Wet ground</strong> — extends harvest, can pause work for weeks</li>
+  <li><strong>Mill demand</strong> — slow mills may slow truck schedule</li>
+  <li><strong>Logger backlog</strong> — sometimes the winning bidder is 1–3 months out from starting</li>
+  <li><strong>Equipment moves</strong> — moving track equipment between jobs takes time</li>
+</ul>
+""",
+        "faqs": [
+            ("Can the sale be faster than 2–4 months?",
+             "Sometimes. Salvage situations (storm damage, beetles) can compress to 3–6 weeks if a logger is available and the market needs the wood."),
+            ("Do I pay the logger or does the buyer pay them?",
+             "The buyer pays the logger. You're paid by the buyer based on what the mill weighs."),
+            ("What if scale tickets don't match expected volume?",
+             "Variance happens within reason. Large unexplained gaps trigger a conversation. Independent on-site oversight reduces these problems before they happen."),
+            ("Can I stop a sale mid-harvest?",
+             "Yes, but the contract typically specifies what triggers and consequences apply. Stop-orders are rare and usually mean a serious problem on the buyer's side."),
+        ],
+        "related": ["/guides/how-to-sell-timber-in-texas/", "/guides/should-i-sell-my-timber/", "/timber/sale-consulting/"],
+        "cta": ("Get a Free Timber Evaluation", "timber"),
+    },
+
+    # ---- Timber: per-ton prices ----
+    {
+        "slug": "/guides/timber-prices-per-ton-texas/",
+        "title": "Timber Prices Per Ton in Texas — Current Stumpage Ranges",
+        "description": "Current per-ton timber prices in Texas: pine sawtimber $22–$32, pine pulpwood $8–$14, hardwood sawtimber $22–$45. Updated quarterly.",
+        "h1": "Timber prices per ton Texas",
+        "eyebrow": "Pricing · Updated quarterly",
+        "category": "Timber",
+        "icon": "pine",
+        "answer": "<strong>Current per-ton stumpage prices in Texas: pine sawtimber $22–$32/ton, pine chip-n-saw $14–$22/ton, pine pulpwood $8–$14/ton, hardwood sawtimber $22–$45/ton, hardwood pulpwood $5–$10/ton.</strong> These are at-the-stump prices (what landowners receive), not delivered-to-mill prices.",
+        "body_html": """
+<p>Per-ton prices are what most Texas timber sales settle on today. Older &ldquo;lump-sum&rdquo; sales (one negotiated total for the whole stand) still happen but are less common because per-ton pays the landowner for actual volume sold.</p>
+
+<h2>Statewide ranges</h2>
+<table>
+  <thead><tr><th>Product</th><th>Range ($/ton)</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td>Pine sawtimber</td><td>$22–$32</td><td>Mature pine, sawmill grade</td></tr>
+    <tr><td>Pine chip-n-saw</td><td>$14–$22</td><td>Mid-size pine</td></tr>
+    <tr><td>Pine pulpwood</td><td>$8–$14</td><td>Small pine, thinnings, mill pulp</td></tr>
+    <tr><td>Pine plylogs</td><td>$26–$36</td><td>Plywood mill (where mill is accessible)</td></tr>
+    <tr><td>Mixed hardwood sawtimber</td><td>$22–$35</td><td>Sweetgum, hickory</td></tr>
+    <tr><td>Premium hardwood (oak veneer)</td><td>$30–$45+</td><td>Quality oak; smaller market</td></tr>
+    <tr><td>Hardwood pulpwood</td><td>$5–$10</td><td>Low-grade, market-dependent</td></tr>
+  </tbody>
+</table>
+
+<h2>East Texas-specific factors</h2>
+<p>East Texas — the &ldquo;Piney Woods&rdquo; — sits in a strong pine market with multiple mills. Per-ton stumpage is usually at or above statewide averages. <a href="/guides/east-texas-pine-timber-prices/">See East Texas pine prices →</a></p>
+
+<h2>What moves the number</h2>
+<ul class="checks">
+  <li>Tract size — bigger tracts get more bidders</li>
+  <li>Road access — paved vs. dirt, condition</li>
+  <li>Distance to mill — direct cost on every truck</li>
+  <li>Tree quality — straight, large, defect-free pays more</li>
+  <li>Mill demand at sale time — housing starts, paper demand</li>
+</ul>
+
+<p class="source-note">Updated quarterly based on Texas A&amp;M Forest Service stumpage reports, prevailing mill prices, and recent local sales.</p>
+""",
+        "faqs": [
+            ("How do I convert tons to dollars for my stand?",
+             "Multiply tons per acre × per-ton price × acres. A 30-year-old pine plantation often holds 100–150 tons per acre."),
+            ("Why is stumpage less than delivered price?",
+             "Delivered price (what the mill pays the buyer at the mill gate) includes cutting, hauling, and the logger/buyer's margin. Stumpage is what's left for the landowner."),
+            ("How current are these ranges?",
+             "Updated quarterly. Markets move; check back or call for the current quote for your area."),
+            ("Are these prices the same across Texas?",
+             "Roughly, with East Texas typically at or above the statewide range because of mill density and the Piney Woods pine market."),
+        ],
+        "related": ["/guides/east-texas-pine-timber-prices/", "/guides/how-much-is-my-timber-worth/", "/timber/sale-consulting/"],
+        "cta": ("Get a Free Timber Evaluation", "timber"),
+    },
+
+    # ---- Land: cost to dig a pond ----
+    {
+        "slug": "/guides/cost-to-dig-a-pond-texas/",
+        "title": "Cost to Dig a Pond in Texas — Per-Acre & Project Pricing",
+        "description": "Pond digging in Texas typically runs $3,000–$8,000 per surface acre for a basic excavated pond, with full projects reaching $5,000–$15,000+ depending on depth, dam, and spillway.",
+        "h1": "Cost to dig a pond in Texas",
+        "eyebrow": "Cost guide",
+        "category": "Land & Dozer",
+        "icon": "pond",
+        "answer": "<strong>A basic excavated farm pond in Texas typically costs $3,000–$8,000 per surface acre, with full builds (clearing, dam, spillway, finish) running $5,000–$15,000+ per acre depending on site conditions.</strong> Smaller stock ponds often run $4,500–$9,000 turnkey for ~0.5–1 acre. Bigger rec ponds with a proper clay-core dam, sized spillway, and stocked depth go higher.",
+        "body_html": """
+<p>Pond construction cost varies more than almost any other dirt-work job. The biggest drivers are site soil, watershed size, dam construction, and whether you want it to actually hold water through August.</p>
+
+<h2>Typical cost ranges</h2>
+<table>
+  <thead><tr><th>Pond type</th><th>Typical cost</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td>Small stock pond, simple</td><td>$4,500–$9,000</td><td>0.5–1 acre, basic dam</td></tr>
+    <tr><td>Mid-size rec/fish pond</td><td>$10,000–$25,000</td><td>1–2 acres, proper dam &amp; spillway</td></tr>
+    <tr><td>Large rec pond</td><td>$25,000–$60,000+</td><td>2–5 acres, deeper, stocking-ready</td></tr>
+    <tr><td>Erosion / runoff pond</td><td>Project-quoted</td><td>Engineered, sized to watershed</td></tr>
+  </tbody>
+</table>
+
+<h2>What's in the cost</h2>
+<ul class="checks">
+  <li>Clearing the pond footprint</li>
+  <li>Excavating to depth (depth costs more than width)</li>
+  <li>Building the dam — clay core, proper compaction</li>
+  <li>Sizing and installing the spillway</li>
+  <li>Topsoil management around edges</li>
+  <li>Berms and silt control during construction</li>
+  <li>Stocking-ready depth in the right location</li>
+  <li>Site finish, fence repair, access road</li>
+</ul>
+
+<h2>What makes the price jump</h2>
+<ul class="checks">
+  <li>Sandy soil that won't hold water — needs clay liner or different site</li>
+  <li>Larger watershed feeding the pond — bigger spillway required</li>
+  <li>Hauling clay in if the site doesn't have it</li>
+  <li>Stump removal across the footprint</li>
+  <li>Long access road to get equipment in</li>
+</ul>
+
+<h2>What makes the price drop</h2>
+<ul class="checks">
+  <li>Natural low point in clay soil</li>
+  <li>Existing road access</li>
+  <li>Smaller watershed needing modest spillway</li>
+  <li>Stock pond (not engineered rec pond)</li>
+</ul>
+""",
+        "faqs": [
+            ("Can I dig a pond cheaper with a small excavator?",
+             "You can dig a hole. Whether it holds water through August is another question. The expensive part of a real pond is the dam and spillway, not the digging."),
+            ("Do I need a permit to dig a pond in Texas?",
+             "Often no for stock ponds on your own land. Wetlands, near-creek work, and engineered structures may require Army Corps or state permits. We check before starting."),
+            ("Will a pond hold water on sandy ground?",
+             "Sometimes — with a clay liner trucked in. A site visit and a soil look 4 ft down tells us in the first 10 minutes."),
+            ("How big should my pond be?",
+             "Depends on use. Cattle watering: 0.25–0.5 acre. Fishing/swimming: 1+ acre with at least 8 ft depth in part of it."),
+            ("How long does it take to dig?",
+             "A 1-acre pond on cooperative soil: 1–2 weeks of dirt work plus dam and spillway. Larger ponds run 2–6 weeks."),
+        ],
+        "related": ["/land/ponds/", "/guides/land-clearing-cost-per-acre-texas/", "/land/dozer-grading/"],
+        "cta": ("Get a Free Estimate", "land"),
+    },
+
+    # ---- Land: cost to clear a lot ----
+    {
+        "slug": "/guides/cost-to-clear-a-lot-for-building/",
+        "title": "Cost to Clear a Lot for Building — Texas Pricing Guide",
+        "description": "Clearing a typical residential lot for building in Texas runs $2,500–$10,000 for half-acre to one-acre lots, depending on tree cover, stumps, and grading.",
+        "h1": "Cost to clear a lot for building",
+        "eyebrow": "Cost guide",
+        "category": "Land & Dozer",
+        "icon": "dozer",
+        "answer": "<strong>Clearing a residential building lot in Texas typically costs $2,500–$10,000 for half-acre to one-acre lots</strong>, depending on tree cover, stump removal, finish grading, and erosion control. Light brush lots can come in under $2,500; heavy wooded lots with stump removal and finish grade push toward $10,000+.",
+        "body_html": """
+<p>Lot clearing for a build is different from clearing pasture or recreation land. The buyer expects a pad ready for foundation work, with utilities accessible and water moving away from the structure — not just &ldquo;cleared.&rdquo;</p>
+
+<h2>Typical cost by lot type</h2>
+<table>
+  <thead><tr><th>Lot type</th><th>Typical cost</th><th>Includes</th></tr></thead>
+  <tbody>
+    <tr><td>Half-acre, light brush</td><td>$2,500–$4,500</td><td>Mulch + light grade</td></tr>
+    <tr><td>Half-acre, heavy timber</td><td>$4,500–$8,000</td><td>Clear, stump, grade</td></tr>
+    <tr><td>1-acre, light brush</td><td>$3,500–$6,500</td><td>Mulch + grade</td></tr>
+    <tr><td>1-acre, heavy timber + pad</td><td>$7,000–$12,000</td><td>Clear, stump, pad, drainage</td></tr>
+    <tr><td>Lake Livingston lot, sloped</td><td>+15–30%</td><td>Erosion control adds cost</td></tr>
+  </tbody>
+</table>
+
+<h2>What's in the build-ready price</h2>
+<ul class="checks">
+  <li>Clearing the building envelope plus driveway access</li>
+  <li>Stump removal (essential for the pad)</li>
+  <li>Pad cut + compacted, sized for the home or barndominium</li>
+  <li>Drainage off the pad, not into it</li>
+  <li>Septic field area protected</li>
+  <li>Erosion control during construction</li>
+  <li>Burn pile permits, tending, cleanup</li>
+</ul>
+
+<h2>What's often NOT in the base price</h2>
+<ul class="checks">
+  <li>Permanent driveway base + culvert at the county road</li>
+  <li>Final landscaping grade</li>
+  <li>Utility trenching</li>
+  <li>Septic system</li>
+  <li>Replant or seed for the unbuilt area of the lot</li>
+</ul>
+
+<h2>Lake Livingston lots have a 15–30% premium</h2>
+<p>Sloped lakefront lots cost more to clear correctly. The slope, the sandy soils, the buffer zones near the water, the runoff that ends up in the lake — all add cost compared to upland pasture. Don't go with the cheapest quote on a lake lot. <a href="/land/lake-livingston-lots/">See Lake Livingston lot clearing →</a></p>
+""",
+        "faqs": [
+            ("Can I just clear it myself with a chainsaw?",
+             "You can drop trees yourself, but the stumps, the pad cut, the drainage, and the haul-off still need equipment. DIY usually means paying more later for a contractor to fix or finish."),
+            ("How long does lot clearing take?",
+             "Half-acre light: 1–2 days. One-acre heavy with pad and grading: 1–2 weeks including burn/dry time."),
+            ("Do I clear the whole lot or just the build envelope?",
+             "Usually just the envelope plus driveway access, septic field, and a buffer. Leaving canopy where you can helps property value and reduces erosion."),
+            ("Should the builder coordinate this or me?",
+             "Often the landowner hires the clearing contractor directly and gives the builder a build-ready pad. Some builders coordinate it for you and mark it up."),
+            ("What about utilities and septic?",
+             "Separate jobs. We clear, grade, and prep the pad. Utility and septic contractors do their work after we leave."),
+        ],
+        "related": ["/guides/land-clearing-cost-per-acre-texas/", "/land/dozer-grading/", "/land/lake-livingston-lots/", "/land/land-clearing/"],
+        "cta": ("Get a Free Estimate", "land"),
+    },
+
+    # ---- Land: how much to clear an acre ----
+    {
+        "slug": "/guides/how-much-to-clear-an-acre-in-texas/",
+        "title": "How Much Does It Cost to Clear an Acre in Texas?",
+        "description": "Clearing one acre in Texas typically runs $1,500–$6,500 depending on density, tree size, terrain, and method. Mulching is cheaper for light brush; dozer for heavy timber.",
+        "h1": "How much does it cost to clear an acre in Texas?",
+        "eyebrow": "Cost guide",
+        "category": "Land & Dozer",
+        "icon": "dozer",
+        "answer": "<strong>Clearing one acre in Texas typically costs $1,500–$6,500.</strong> Light underbrush mulched in place runs about $1,500–$2,500. Moderate brush with small trees: $2,500–$4,000. Heavy timber with stumps and finish grade: $4,000–$6,500+. The cost depends mostly on density, tree size, and whether you need stump removal and finish grade.",
+        "body_html": """
+<p>The single-acre price is the most-Googled number in this industry — and it's also the one that varies the most. Two &ldquo;one-acre&rdquo; quotes can be five-figure-apart for the same property, depending on what's included.</p>
+
+<h2>Per-acre price by job type</h2>
+<table>
+  <thead><tr><th>Job type</th><th>Per-acre price</th><th>Time</th></tr></thead>
+  <tbody>
+    <tr><td>Light forestry mulching</td><td>$1,500–$2,500</td><td>1–2 hr</td></tr>
+    <tr><td>Moderate mulching, small trees</td><td>$2,500–$3,500</td><td>3–5 hr</td></tr>
+    <tr><td>Dozer clear, brush + small trees, no stumps</td><td>$2,800–$4,000</td><td>4–6 hr</td></tr>
+    <tr><td>Heavy clear with stumps</td><td>$3,800–$5,500</td><td>6–10 hr</td></tr>
+    <tr><td>Heavy clear + finish grade</td><td>$4,500–$6,500+</td><td>8–14+ hr</td></tr>
+  </tbody>
+</table>
+
+<h2>What's in vs. what's extra</h2>
+<p>Always ask. A cheap quote often excludes things you need:</p>
+<ul class="checks">
+  <li>Stump removal — base or extra?</li>
+  <li>Burn pile permits, tending, cleanup</li>
+  <li>Haul-off vs. mulched/burned on site</li>
+  <li>Finish grade or rough grade only</li>
+  <li>Driveway cut to access the work area</li>
+  <li>Erosion control for sloped sites</li>
+</ul>
+
+<h2>How to bring the price down</h2>
+<ul class="checks">
+  <li>Schedule in dry weather (winter rains push prices)</li>
+  <li>Mulch in place if appropriate (no burn, no haul)</li>
+  <li>Clear larger continuous tracts (better per-acre economics)</li>
+  <li>Skip stump removal if the use case doesn't require it</li>
+</ul>
+
+<h2>If you have marketable timber</h2>
+<p>Don't pay to clear what you could be paid for. Mature pine and hardwood on the lot may offset clearing costs entirely. <a href="/timber/sale-consulting/">See timber sale first →</a></p>
+""",
+        "faqs": [
+            ("Is mulching always cheaper than dozer clearing?",
+             "For light-to-moderate brush, yes. For heavy timber with stumps, no — dozer is usually more cost-effective."),
+            ("How long to clear an acre?",
+             "Light mulching: 1–2 hours. Heavy clear with stumps: 6–10+ hours plus burn-pile time."),
+            ("Do per-acre prices apply for very small jobs?",
+             "Sub-half-acre jobs are usually project-quoted rather than per-acre. Mobilization is a real cost on small jobs."),
+            ("Will winter rain delay my job?",
+             "Often yes. Clay creek bottoms in Polk and Trinity counties especially. Dry weather scheduling is the cheaper route."),
+        ],
+        "related": ["/guides/land-clearing-cost-per-acre-texas/", "/guides/forestry-mulching-cost/", "/land/land-clearing/", "/timber/sale-consulting/"],
+        "cta": ("Get a Free Estimate", "land"),
+    },
+]
+
+
+# ---- Counties (geographic landing pages) ------------------------------------
+
+COUNTIES = [
+    {
+        "slug": "/service-area/polk-county/",
+        "name": "Polk County",
+        "title": "Land Clearing & Timber Sales in Polk County TX — Rowe Land, Timber & Dozer",
+        "description": "Local land clearing, dozer work, and timber sale consulting in Polk County, Texas — Livingston, Onalaska, Goodrich, Corrigan, Leggett, and the Lake Livingston shoreline.",
+        "h1": "Polk County, Texas — land work & timber sales",
+        "lede": "Polk County is home. Livingston is where the equipment is parked and where the trucks roll out from every morning. This is our most-served county by a wide margin.",
+        "towns": ["Livingston", "Onalaska", "Goodrich", "Corrigan", "Leggett", "Camden", "Moscow", "Seven Oaks", "Indian Springs", "Big Thicket area"],
+        "terrain": "Polk County is mixed — sandy Piney Woods uplands across most of the county transitioning to clay creek bottoms toward the Trinity River and to sandy lakefront soils around Lake Livingston. Pine plantations dominate the upland timber base; bottomland hardwood corridors line the creeks. We work all of it.",
+        "specialty": "Lake Livingston shoreline lots are our most-quoted job in Polk County. Sloped, sandy, erosion-prone — they need a different approach than upland clearing. <a href=\"/land/lake-livingston-lots/\">See Lake Livingston lot clearing →</a>",
+        "services": [
+            ("/land/land-clearing/", "Land clearing — pine, hardwood, brush, stumps"),
+            ("/land/forestry-mulching/", "Forestry mulching"),
+            ("/land/dozer-grading/", "Dozer work &amp; finish grading"),
+            ("/land/ponds/", "Pond construction"),
+            ("/land/lake-livingston-lots/", "Lake Livingston lot specialist"),
+            ("/timber/sale-consulting/", "Timber sale consulting"),
+            ("/timber/management/", "Timber management plans"),
+        ],
+    },
+    {
+        "slug": "/service-area/san-jacinto-county/",
+        "name": "San Jacinto County",
+        "title": "Land Clearing & Timber Services in San Jacinto County TX | Rowe",
+        "description": "Land clearing, dozer work, and timber sale consulting in San Jacinto County, Texas — Coldspring, Point Blank, Oakhurst, and the west side of Lake Livingston.",
+        "h1": "San Jacinto County, Texas — land & timber work",
+        "lede": "San Jacinto County is a short drive from our Livingston yard, and the west side of Lake Livingston is one of our most-served zip codes. Coldspring, Point Blank, Oakhurst.",
+        "towns": ["Coldspring", "Point Blank", "Oakhurst", "Shepherd", "Pointblank"],
+        "terrain": "San Jacinto sits west of Polk County across the lake. The terrain is similar — sandy uplands, lakefront slopes, creek-bottom clay near tributaries. The west side of Lake Livingston has its own subdivision character: lots of recreational acreage, weekend properties, and lake homes.",
+        "specialty": "We clear and grade Lake Livingston lots on the west side as often as we do on the Polk side. Erosion control on sloped lakefront ground is essential. <a href=\"/land/lake-livingston-lots/\">Lake Livingston lot clearing →</a>",
+        "services": [
+            ("/land/land-clearing/", "Land clearing"),
+            ("/land/forestry-mulching/", "Forestry mulching"),
+            ("/land/dozer-grading/", "Dozer work &amp; grading"),
+            ("/land/ponds/", "Ponds"),
+            ("/land/lake-livingston-lots/", "Lake Livingston lots (west side)"),
+            ("/timber/sale-consulting/", "Timber sale consulting"),
+        ],
+    },
+    {
+        "slug": "/service-area/trinity-county/",
+        "name": "Trinity County",
+        "title": "Land Clearing & Timber in Trinity County TX | Rowe Land, Timber & Dozer",
+        "description": "Land clearing, forestry mulching, dozer work, and timber sale consulting in Trinity County — Trinity, Groveton, Apple Springs, and the northwest Lake Livingston shoreline.",
+        "h1": "Trinity County, Texas — land & timber work",
+        "lede": "Trinity County is to our north and west, including the northwest shoreline of Lake Livingston. Big timber country with strong pine and hardwood stands and a long history of forest products.",
+        "towns": ["Trinity", "Groveton", "Apple Springs", "Centralia", "Pennington"],
+        "terrain": "Trinity County is heavily forested with sandy Piney Woods soils across the uplands and clay-bottom hardwood corridors. Logging culture is deep here — the county has shipped pine and hardwood to mills for over a century. Stands tend to be larger and better-managed than the regional average.",
+        "specialty": "Larger forested tracts in Trinity County often have meaningful timber value before any clearing. If you're considering clearing land here, talk to us about timber sale consulting first — there's often money on the ground worth capturing. <a href=\"/timber/sale-consulting/\">Timber sale consulting →</a>",
+        "services": [
+            ("/timber/sale-consulting/", "Timber sale consulting"),
+            ("/timber/management/", "Timber management plans"),
+            ("/timber/harvest/", "Harvest oversight"),
+            ("/land/land-clearing/", "Land clearing after harvest"),
+            ("/land/dozer-grading/", "Dozer work &amp; grading"),
+        ],
+    },
+    {
+        "slug": "/service-area/tyler-county/",
+        "name": "Tyler County",
+        "title": "Land Clearing & Timber in Tyler County TX | Rowe Land, Timber & Dozer",
+        "description": "Land clearing, forestry mulching, and timber consulting in Tyler County, Texas — Woodville, Colmesneil, Chester, and surrounding Piney Woods communities.",
+        "h1": "Tyler County, Texas — land & timber work",
+        "lede": "Tyler County is east of Polk in the deep East Texas Piney Woods. Woodville sits at the heart of strong pine country. We work select projects in Tyler County, particularly larger timber jobs.",
+        "towns": ["Woodville", "Colmesneil", "Chester", "Doucette", "Spurger", "Hillister"],
+        "terrain": "Tyler County is classic Piney Woods — pine-dominated uplands, sandy soils, and the western edge of the Big Thicket National Preserve in the south. Timber is the primary industry, and stands tend to be well-managed.",
+        "specialty": "Larger pine tracts in Tyler County often warrant a consulting forester on the sale. We do the same job here as in Polk County — competitive bidding, written contracts, on-site oversight. <a href=\"/timber/sale-consulting/\">Timber sale consulting →</a>",
+        "services": [
+            ("/timber/sale-consulting/", "Timber sale consulting"),
+            ("/timber/management/", "Timber management plans"),
+            ("/land/land-clearing/", "Land clearing"),
+            ("/land/forestry-mulching/", "Forestry mulching"),
+        ],
+    },
+    {
+        "slug": "/service-area/angelina-county/",
+        "name": "Angelina County",
+        "title": "Land Clearing & Timber in Angelina County TX | Rowe Land, Timber & Dozer",
+        "description": "Selective land clearing, forestry mulching, and timber sale consulting in Angelina County, Texas — Lufkin, Diboll, Huntington, Zavalla, and surrounding pine country.",
+        "h1": "Angelina County, Texas — land & timber work",
+        "lede": "Angelina County is the heart of East Texas timber country — Lufkin, Diboll, and the major sawmill town belt. We take select projects here, particularly larger consultant-managed timber sales and dozer work.",
+        "towns": ["Lufkin", "Diboll", "Huntington", "Zavalla", "Hudson"],
+        "terrain": "Angelina is pine-dominant, with some of the most productive pine ground in Texas. Multiple major mills are in or near the county, which keeps stumpage prices competitive. Soils run sandy across the uplands, with clay near the Angelina River corridor.",
+        "specialty": "If you're selling timber in Angelina County, competitive bidding is even more important than usual — multiple mills nearby means real market depth, but only if your sale is bid out. A direct sale here is leaving money on the table almost by definition.",
+        "services": [
+            ("/timber/sale-consulting/", "Timber sale consulting"),
+            ("/timber/harvest/", "Harvest oversight"),
+            ("/land/land-clearing/", "Land clearing"),
+            ("/land/dozer-grading/", "Dozer work &amp; grading"),
+        ],
+    },
+    {
+        "slug": "/service-area/walker-county/",
+        "name": "Walker County",
+        "title": "Land Clearing & Dozer Work in Walker County TX | Rowe Land, Timber & Dozer",
+        "description": "Land clearing, dozer work, forestry mulching, and timber consulting in Walker County, Texas — Huntsville, New Waverly, and surrounding rural acreage.",
+        "h1": "Walker County, Texas — land & timber work",
+        "lede": "Walker County is to our southwest — Huntsville, New Waverly, the I-45 corridor. We work select jobs here. Worth noting: the biggest land-clearing outfit in our area is based in Walker County and drives 40+ minutes into Polk for jobs. We're happy to do the reverse.",
+        "towns": ["Huntsville", "New Waverly", "Riverside", "Dodge"],
+        "terrain": "Walker County is mixed — sandy Piney Woods in the north transitioning to post-oak savannah toward the south. Pine plantations, scattered hardwood, and a strong recreational/rural-residential market. Sam Houston National Forest covers a large piece of the county.",
+        "specialty": "If you're inside Walker County and shopping clearing or dozer quotes, ask whether the contractor is local or driving in. Trip time eats into the per-acre price either way. We're transparent about ours — Livingston is ~40 minutes from most Walker County jobs.",
+        "services": [
+            ("/land/land-clearing/", "Land clearing"),
+            ("/land/forestry-mulching/", "Forestry mulching"),
+            ("/land/dozer-grading/", "Dozer work &amp; grading"),
+            ("/timber/sale-consulting/", "Timber sale consulting"),
+        ],
+    },
+]
+
+
+# ---- Lake Livingston subdivision pages ----
+
+LAKE_AREAS = [
+    {
+        "slug": "/service-area/lake-livingston-onalaska/",
+        "name": "Lake Livingston — Onalaska",
+        "title": "Land Clearing & Lot Prep in Onalaska TX — Lake Livingston | Rowe",
+        "description": "Lake lot clearing, dozer work, and erosion-aware grading on the east side of Lake Livingston in Onalaska, TX. Local Polk County contractor, walk-the-site quote.",
+        "h1": "Lake Livingston lot clearing — Onalaska",
+        "lede": "Onalaska sits on the east side of Lake Livingston in Polk County — close to our Livingston yard and one of our most-served zip codes. Lake lots in Onalaska range from gentle sandy slopes to steep cut-bank ground. They're all different. We walk each one.",
+        "terrain": "Onalaska lakefront is mostly sandy and sandy-loam soils. Slopes vary lot to lot — some are gentle enough for straight clearing, others need careful staging and buffer retention to keep dirt out of the lake. Many subdivisions have HOA rules that affect what can come down.",
+        "details": """<h3>What's different about Onalaska lake lots</h3>
+<ul class="checks">
+  <li>Often inside HOA-managed subdivisions with tree and disturbance rules</li>
+  <li>Slopes that look mild are often steeper near the waterline</li>
+  <li>Sandy soil moves fast if exposed; runoff goes straight into the lake</li>
+  <li>Buffer trees near the water often must stay (by HOA or common sense)</li>
+  <li>Working room is smaller than rural acreage — neighbors close on both sides</li>
+</ul>
+
+<h3>How we approach an Onalaska lot</h3>
+<ol>
+  <li>Walk the lot with you, identify what you want kept and what goes</li>
+  <li>Read the HOA covenants if applicable</li>
+  <li>Plan staging and equipment routes to minimize damage</li>
+  <li>Forestry mulching often beats dozer near the water line</li>
+  <li>Active runoff control during and after clearing</li>
+  <li>Leave a buffer where the slope calls for it</li>
+</ol>""",
+    },
+    {
+        "slug": "/service-area/lake-livingston-coldspring/",
+        "name": "Lake Livingston — Coldspring",
+        "title": "Land Clearing & Lot Prep in Coldspring TX — Lake Livingston | Rowe",
+        "description": "Lake lot clearing, dozer work, and erosion-aware grading on the west side of Lake Livingston in Coldspring, TX. Owner-operated, walks every lot before quoting.",
+        "h1": "Lake Livingston lot clearing — Coldspring",
+        "lede": "Coldspring sits on the west side of Lake Livingston in San Jacinto County. The west side has its own character — different subdivisions, often more secluded ground, and shoreline lots ranging from gentle to genuinely steep.",
+        "terrain": "Coldspring lakefront and near-lake ground is similar to the east side — sandy and sandy-loam soils, sloped lots, erosion risk if cleared without care. The west side tends to have larger lots on average than parts of the east, but that's a generalization with plenty of exceptions.",
+        "details": """<h3>What's different about Coldspring lake lots</h3>
+<ul class="checks">
+  <li>Often more secluded acreage compared to dense east-side subdivisions</li>
+  <li>Steeper slopes on some sections of the western shoreline</li>
+  <li>Mixed Piney Woods cover — pine, oak, hickory, yaupon understory</li>
+  <li>Many lots are weekend or future-build properties — owner not on site</li>
+  <li>HOA rules vary widely by subdivision</li>
+</ul>
+
+<h3>How we approach a Coldspring lot</h3>
+<ol>
+  <li>Walk the lot with you (or via a drone/photo intake if you're absentee)</li>
+  <li>Identify slope, buffer requirements, HOA constraints</li>
+  <li>Choose mulching vs. dozer based on slope and what stays</li>
+  <li>Stage equipment and runoff control before any clearing</li>
+  <li>Leave the lot build-ready or recreation-ready, depending on goal</li>
+</ol>""",
+    },
+]
+
+
+def build_county(c):
+    services_html = "".join(f'<li><a href="{u}">{label}</a></li>' for u, label in c["services"])
+    towns_html = ", ".join(c["towns"])
+    body = f"""<section class="hero hero-illustrated"><div class="wrap">
+  <div>
+    <p class="eyebrow-line">{c["name"]} · East Texas</p>
+    <h1>{c["h1"]}</h1>
+    <p class="lede">{c["lede"]}</p>
+    <p><a class="btn" href="/contact/">Get a Free Estimate</a> &nbsp; <a class="btn ghost" href="tel:{PHONE_TEL}">Call {PHONE_DISPLAY}</a></p>
+  </div>
+  <div class="hero-art">{SVGS["compass"]}</div>
+</div></section>
+
+<section><div class="wrap two-col">
+  <div>
+    <h2>Towns &amp; communities we serve in {c["name"]}</h2>
+    <p>{towns_html}, and the surrounding rural acreage.</p>
+
+    <h2>The land in {c["name"]}</h2>
+    <p>{c["terrain"]}</p>
+
+    <h2>Specialty here</h2>
+    <p>{c["specialty"]}</p>
+  </div>
+  <div>
+    <h3>Services we provide in {c["name"]}</h3>
+    <ul class="checks">{services_html}</ul>
+
+    <h3>Why local matters</h3>
+    <p>We&rsquo;re based in Livingston (Polk County), which means short trips into {c["name"]} and no long-distance markup on the quote. Local also means we know the local terrain — sandy upland vs. clay bottom behaves differently, and we&rsquo;ve worked both.</p>
+  </div>
+</div></section>"""
+    body += dark_cta(
+        f"Free estimate on your {c['name']} project.",
+        f"<p>Tell us where in {c['name']} the property is and what you&rsquo;re trying to do. We&rsquo;ll come walk it and give you a real number — same local pricing as our Polk County work.</p>",
+        "Get a Free Estimate", "both",
+    )
+    extra = service_jsonld(
+        f"Land Clearing and Timber Services in {c['name']}",
+        f"Land clearing, dozer work, forestry mulching, and timber sale consulting in {c['name']}, Texas.",
+        c["slug"],
+        area_served=[f"{c['name']}, TX"] + c["towns"],
+    )
+    breadcrumb = [("Home", "/"), ("Service Area", "/service-area/"), (c["name"], c["slug"])]
+    render(c["slug"], c["title"], c["description"], body, extra, breadcrumb=breadcrumb)
+
+
+def build_counties():
+    for c in COUNTIES:
+        build_county(c)
+
+
+def build_lake_area(la):
+    body = f"""<section class="hero hero-illustrated"><div class="wrap">
+  <div>
+    <p class="eyebrow-line">Lake Livingston · {la["name"].split(" — ")[1]}</p>
+    <h1>{la["h1"]}</h1>
+    <p class="lede">{la["lede"]}</p>
+    <p><a class="btn alt" href="/contact/?type=land">Get a Free Estimate</a> &nbsp; <a class="btn ghost" href="tel:{PHONE_TEL}">Call {PHONE_DISPLAY}</a></p>
+  </div>
+  <div class="hero-art">{SVGS["lake"]}</div>
+</div></section>
+
+<section><div class="wrap two-col">
+  <div>
+    <h2>The land here</h2>
+    <p>{la["terrain"]}</p>
+
+    {la["details"]}
+  </div>
+  <div>
+    <h3>Related services</h3>
+    <ul class="checks">
+      <li><a href="/land/lake-livingston-lots/">Lake Livingston lot clearing — main page</a></li>
+      <li><a href="/land/forestry-mulching/">Forestry mulching</a></li>
+      <li><a href="/land/dozer-grading/">Dozer work &amp; grading</a></li>
+      <li><a href="/land/roads-pads-drainage/">Driveways, pads &amp; drainage</a></li>
+    </ul>
+
+    <h3>What we won&rsquo;t do</h3>
+    <p>We won&rsquo;t scrape a lake lot bare and leave it to wash. There&rsquo;s a right way to do this, and that&rsquo;s how we quote.</p>
+  </div>
+</div></section>"""
+    body += dark_cta(
+        f"Site visit on the lot, no charge.",
+        f"<p>Tell us the lot address or subdivision name and we&rsquo;ll meet you out there. Walk it together, talk through what you want, give you a real number.</p>",
+        "Get a Free Estimate", "land",
+    )
+    extra = service_jsonld(
+        f"Lake Livingston Lot Clearing in {la['name'].split(' — ')[1]}",
+        la["description"],
+        la["slug"],
+        area_served=[la["name"].split(" — ")[1] + ", TX", "Lake Livingston"],
+    )
+    breadcrumb = [("Home", "/"), ("Service Area", "/service-area/"), (la["name"], la["slug"])]
+    render(la["slug"], la["title"], la["description"], body, extra, breadcrumb=breadcrumb)
+
+
+def build_lake_areas():
+    for la in LAKE_AREAS:
+        build_lake_area(la)
+
+
 def build_guide(g):
     related_html = "".join(f'<li><a href="{u}">{u.strip("/").replace("guides/", "").replace("-", " ").title()}</a></li>' for u in g["related"])
     cta_label, cta_type = g["cta"]
@@ -1526,6 +2278,7 @@ ALL_URLS = [
     "/land/lake-livingston-lots/",
     "/land/roads-pads-drainage/",
     "/service-area/",
+] + [c["slug"] for c in COUNTIES] + [la["slug"] for la in LAKE_AREAS] + [
     "/guides/",
 ] + [g["slug"] for g in GUIDES] + [
     "/about/",
@@ -1554,6 +2307,8 @@ def main():
     build_404()
     build_guides_index()
     build_guides()
+    build_counties()
+    build_lake_areas()
     build_sitemap()
     print("Done.")
 
